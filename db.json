@@ -5,24 +5,32 @@
       "id": 1,
       "sku": 512534124,
       "name": "Optical mouse",
+      "description": "mouse optico de no bolita",
+      "imagen": "imagen",
       "price": 512
     },
     {
       "id": 2,
       "sku": 35252355,
       "name": "Keyboard",
+      "description": "mouse optico de no bolita",
+      "imagen": "imagen",
       "price": 632
     },
     {
       "id": 3,
       "sku": 754745726,
       "name": "Headphones",
+      "description": "mouse optico de no bolita",
+      "imagen": "imagen",
       "price": 7334
     },
     {
       "id": 4,
       "sku": 6327237255,
       "name": "Microphone",
+      "description": "mouse optico de no bolita",
+      "imagen": "imagen",
       "price": 543
     }
   ]
