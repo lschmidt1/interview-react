@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
 import { PrivateRoute } from '../_components';
-import { HomePage } from '../HomePage';
-import { LoginPage } from '../LoginPage';
-import { RegisterPage } from '../RegisterPage';
+import { HomePage } from '../views/HomePage';
+import { LoginPage } from '../views/LoginPage';
+import Products from '../views/ProductsPage/Products';
+import ProductDetail from '../views/ProductsPage/ProductDetail';
+import { RegisterPage } from '../views/RegisterPage';
 
 class App extends React.Component {
     constructor(props) {
@@ -33,6 +35,8 @@ class App extends React.Component {
                             <div>
                                 <PrivateRoute exact path="/" component={HomePage} />
                                 <Route path="/login" component={LoginPage} />
+                                <Route path="/products" component={Products} />
+                                <Route path='/products/:id' component={ProductDetail} />
                                 <Route path="/register" component={RegisterPage} />
                             </div>
                         </Router>
