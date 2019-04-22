@@ -1,0 +1,32 @@
+h1{
+    font-size: 3rem;
+    color: #4CAF50;
+    font-weight: bolder;
+    padding: 20px;
+    text-align: center
+  }
+  .detailsHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  }
+  
+  .backButton{
+    margin-top: 95%;
+    color: #4CAF50;
+    background: transparent;
+    font-size: xx-large;
+    font-weight: bold;
+  }
+
+  .productTitle{
+    color: #4CAF50;
+  }
+  .li{
+    text-align: center;
+    color: #4CAF50;
+  }
+  ul{
+    display: flex;
+    flex-direction: column;
+  }

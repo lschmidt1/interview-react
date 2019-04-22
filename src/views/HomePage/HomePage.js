@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import NavBar from '../../Components/NavBar'
+import '../../styles/homePage.css';
 
 import { userActions } from '../../_actions';
 
@@ -9,38 +10,18 @@ class HomePage extends React.Component {
         this.props.dispatch(userActions.getAll());
     }
 
-    handleDeleteUser(id) {
-        return (e) => this.props.dispatch(userActions.delete(id));
-    }
-
     render() {
-        const { user, users } = this.props;
+        const { user} = this.props;
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <p>Welcome {user.firstName}!</p>
-                <h3>All registered users:</h3>
-                {users.loading && <em>Loading users...</em>}
-                {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-                {/* {users.items &&
-                    <ul>
-                        {users.items.map((user, index) =>
-                            <li key={user.id}>
-                                {user.firstName + ' ' + user.lastName}
-                                {
-                                    user.deleting ? <em> - Deleting...</em>
-                                    : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                    : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
-                                }
-                            </li>
-                        )}
-                    </ul>
-                } */}
-                <p>
-                <Link to="/products">See our products</Link>
-                </p>
-                <p>
-                    <Link to="/login">Logout</Link>
-                </p>
+            <div>
+                <NavBar active="home"/>
+                <div >
+                <h3 className="welcome">Welcome, {user.firstName}</h3>
+                </div>
+                <div >
+                <p className="welcomeMessage">Please, go to our products section to start browsing through our awesome stuff!</p>
+                </div>
+               
             </div>
         );
     }

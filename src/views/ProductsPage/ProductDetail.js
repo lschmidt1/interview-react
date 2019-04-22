@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import '../../styles/productDetail.css';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import "../../styles/productDetail.css";
+import { Link } from "react-router-dom";
+import NavBar from "../../Components/NavBar";
+import axios from "axios";
 
 class ProductDetail extends Component {
   state = {
@@ -9,45 +11,104 @@ class ProductDetail extends Component {
     price: null,
     image: null,
     description: null,
-    category: null, 
+    category: null,
     size: null,
     brand: null,
-    stock: null, 
-   
+    stock: null,
+    error: "",
+    loading: true
+  };
+
+  componentDidMount() {
+    const {
+      match: {
+        params: { id }
+      }
+    } = this.props;
+    this.getProductDetail(id);
   }
-  async componentDidMount() {
-    const { match: { params: { id } } } = this.props
-    
-    const response = await fetch(`http://localhost:3000/products/${id}`)
-    const { name, sku, price, image, description, category, size, brand, stock} = await response.json()
-    this.setState({ name, sku, price, image, description, category, size, brand, stock })
+
+  getProductDetail(id) {
+    return axios
+      .get(`http://localhost:3000/products/${id}`)
+      .then(res => {
+        const {
+          name,
+          sku,
+          price,
+          image,
+          description,
+          category,
+          size,
+          brand,
+          stock
+        } = res.data;
+        this.setState({
+          name,
+          sku,
+          price,
+          image,
+          description,
+          category,
+          size,
+          brand,
+          stock,
+          loading: false
+        });
+      })
+      .catch(error => {
+        this.setState({
+          error,
+          loading: false
+        });
+      });
   }
+
   render() {
-    const { match: { params: { id } } } = this.props
-    const { sku, name, price, image, description, category, size, brand, stock } = this.state
+    const {
+      sku,
+      name,
+      price,
+      image,
+      description,
+      category,
+      size,
+      brand,
+      stock
+    } = this.state;
+    console.log(brand);
     return (
       <div className="productDetails">
-        <div className="detail">
+        <NavBar active="products" />
+        <div className="detail" hidden={this.state.loading}>
           <header className="detailsHeader">
-            <h1> {name}</h1>
-            <Link to="/products" className="backButton">
-              <button >BACK TO PRODUCTS</button>
+            <Link to="/products">
+              <button className="backButton">{"<"}</button>
             </Link>
+            <h1 className="productTitle"> {name}</h1>
           </header>
-          <ul className="details">
-            <li>SKU: {sku}</li>
-            <li>Price: {price}</li>
-            <li>Image: {image}</li>
-            <li>Description: {description}</li>
-            <li>Category: {category}</li>
-            <li>Size: {size}</li>
-            <li>Brand: {brand}</li>
-            <li>Stock: {stock}</li>
-          </ul>
+          <div className="product">
+            <img src={image} alt="product" className="productImage" />
+            <ul className="details">
+              <li>Code: {sku}</li>
+              <li>Category: {category}</li>
+              <li>Description: {description}</li>
+              <li>Price: {price}$</li>
+              <li>Size: {size}</li>
+              <li>Brand: {brand}</li>
+              <li>Stock: {stock}</li>
+            </ul>
           </div>
+        </div>
+        <h2 hidden={!this.state.loading} className="loading">
+          LOADING...
+        </h2>
+        <h2 hidden={!this.state.error} className="loading">
+          AN ERROR HAS OCURRED! :(
+        </h2>
       </div>
-    )
+    );
   }
 }
 
-export default ProductDetail
+export default ProductDetail;

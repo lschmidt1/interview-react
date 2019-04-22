@@ -4,34 +4,74 @@
     {
       "id": 1,
       "sku": 512534124,
-      "name": "Optical mouse",
-      "description": "mouse optico de no bolita",
-      "imagen": "imagen",
+      "category": "Processor",
+      "size": "5x5",
+      "brand": "Intel",
+      "stock": "3",
+      "name": "INTEL I5-9400F 4.1Ghz",
+      "description": "Last generation Intel i5 processor",
+      "image": "i5Processor",
       "price": 512
     },
     {
       "id": 2,
       "sku": 35252355,
-      "name": "Keyboard",
-      "description": "mouse optico de no bolita",
-      "imagen": "imagen",
-      "price": 632
+      "category": "GPU",
+      "size": "25x30",
+      "brand": "Nvidia",
+      "stock": "7",
+      "name": "GEFORCE GTX 1060",
+      "description": "High performance, low budget GPU",
+      "image": "GTX1060",
+      "price": 450
     },
     {
       "id": 3,
       "sku": 754745726,
-      "name": "Headphones",
-      "description": "mouse optico de no bolita",
-      "imagen": "imagen",
-      "price": 7334
+      "category": "Motherboard",
+      "size": "40x33",
+      "brand": "Asus",
+      "stock": "2",
+      "name": "MOTHER ASUS PRIME H310M-E",
+      "description": "Asus motherboard socket 1151",
+      "image": "ASUSH310ME",
+      "price": 200
     },
     {
       "id": 4,
-      "sku": 6327237255,
-      "name": "Microphone",
-      "description": "mouse optico de no bolita",
-      "imagen": "imagen",
-      "price": 543
+      "sku": 277249924,
+      "category": "Memory",
+      "size": "5x5",
+      "brand": "Kingston",
+      "stock": "14",
+      "name": "RAM MEMORY 4GB KINGSTON",
+      "description": "Ram memory 4Gb 2400 DDR4 Kingston",
+      "image": "RAM4GBKINGSTON",
+      "price": 80
+    },
+    {
+      "id": 5,
+      "sku": 138529592,
+      "category": "SSD",
+      "size": "13x11",
+      "brand": "Kingston",
+      "stock": "24",
+      "name": "SSD 120GB KINGSTON",
+      "description": "SSD 120Gb Kingston Sata III A400",
+      "image": "SSD120GBKINGSTON",
+      "price": 110
+    },
+    {
+      "id": 6,
+      "sku": 923882489,
+      "category": "Power Supply",
+      "size": "20x15",
+      "brand": "Cougar",
+      "stock": "9",
+      "name": "POWER SUPPLY 800 COUGAR",
+      "description": "Power Supply 800 Cougar GX 800 80 PLUS GOLD",
+      "image": "COUGARGX",
+      "price": 125
     }
   ]
 }
